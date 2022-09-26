@@ -1,119 +1,125 @@
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: cornsilk;
-}
-
-ul {
-    padding: 0;
-    list-style-type: none;
-}
-
-ul li {
+  * {
     box-sizing: border-box;
-    width: 15em;
-    height: 3em;
-    font-size: 20px;
-    border-radius: 0.5em;
-    margin: 0.5em;
-    box-shadow: 0 0 1em rgba(0,0,0,0.2);
-    color: white;
-    font-family: sans-serif;
-    text-transform: capitalize;
-    line-height: 3em;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-ul li:nth-child(odd) {
-    background: linear-gradient(to right, orange, tomato);
-    text-align: left;
-    padding-left: 10%;
-    transform: perspective(500px) rotateY(45deg);
-}
-
-ul li:nth-child(even) {
-    background: linear-gradient(to left, orange, tomato);
-    text-align: right;
-    padding-right: 10%;
-    transform: perspective(500px) rotateY(-45deg);
-}
-
-ul li:nth-child(odd):hover {
-    transform: perspective(200px) rotateY(45deg);
-    padding-left: 5%;
-}
-
-ul li:nth-child(even):hover {
-    transform: perspective(200px) rotateY(-45deg);
-    padding-right: 5%;
-}
-body {
-  font-family: system-ui, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-h1 {
-
-  font-size: calc( 1em + 6vmin );
-  font-weight: 900;
-  color: tomato;
-  
-  --x-offset: -0.0625em;
-  --y-offset: 0.0625em;
-  --stroke: 0.025em;
-  --background-color: white;
-  --stroke-color: lightblue;
-  
-  text-shadow: 
-    
-    var(--x-offset)
-    var(--y-offset)
-    0px
-    var(--background-color), 
-    
-    calc( var(--x-offset) - var(--stroke) )
-    calc( var(--y-offset) + var(--stroke) )
-    0px
-    var(--stroke-color);
-  
-}
-
-@supports ( text-shadow: 1px 1px 1px 1px black ) {
-  h1 {
-    text-shadow:
-      
-      var(--x-offset)
-      var(--y-offset)
-      0px
-      0px
-      var(--background-color), 
-      
-      var(--x-offset) 
-      var(--y-offset)
-      var(--stroke)
-      0px
-      var(--stroke-color);
-    
   }
-}
 
+  :root {
+    --background: #e5ffb3;
+    --background-accent: #dbf8a3;
+    --background-accent-2: #bde66e;
+    --light: #92de34;
+    --dark: #69bc22;
+    --text: #025600;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image: linear-gradient(
+        var(--background-accent-2) 50%,
+        var(--background-accent) 50%
+      ),
+      linear-gradient(
+        var(--background-accent) 50%,
+        var(--background-accent-2) 50%
+      );
+    background-repeat: no-repeat;
+    background-size: 100% 30px;
+    background-position: top left, bottom left;
+    min-height: 98vh;
+  }
+
+  div {
+    display: block;
+    width: 400px;
+    margin: 0 auto 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30vh;
+  }
+
+  button {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 400px;
+    height: 70px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin-bottom: 15px;
+  }
+
+  button:hover {
+    background-image: linear-gradient(
+      145deg,
+      transparent 10%,
+      var(--dark) 10% 20%,
+      transparent 20% 30%,
+      var(--dark) 30% 40%,
+      transparent 40% 50%,
+      var(--dark) 50% 60%,
+      transparent 60% 70%,
+      var(--dark) 70% 80%,
+      transparent 80% 90%,
+      var(--dark) 90% 100%
+    );
+    animation: background 3s linear infinite;
+  }
+
+  @keyframes background {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 400px 0;
+    }
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: calc(1em + 6vmin);
+    font-weight: 900;
+    color: tomato;
+
+    --x-offset: -0.0625em;
+    --y-offset: 0.0625em;
+    --stroke: 0.025em;
+    --background-color: white;
+    --stroke-color: lightblue;
+
+    text-shadow: var(--x-offset) var(--y-offset) 0px var(--background-color),
+      calc(var(--x-offset) - var(--stroke))
+        calc(var(--y-offset) + var(--stroke)) 0px var(--stroke-color);
+  }
+
+  @supports (text-shadow: 1px 1px 1px 1px black) {
+    h1 {
+      text-shadow: var(--x-offset) var(--y-offset) 0px 0px
+          var(--background-color),
+        var(--x-offset) var(--y-offset) var(--stroke) 0px var(--stroke-color);
+    }
+  }
 </style>
 
-<body>
-<h1> River <br>Mod <br>Menu</h1>
-<ul>
- <li><a href="#">Download</a></li></a>
-  <li><a href="#">Get Key</a></li></a>
- <li><a href="#">Discord</a></li></a>
- <li><a href="#">Showcase</a></li></a>
-</ul>
-</body>
+<div>
+  <h1>River Mod</h1>
+  <button onclick="window.location='https://google.com';">Download</button>
+  <button onclick="window.location='https://google.com';">
+    Get Key (FREE)
+  </button>
+  <button onclick="window.location='https://google.com';">Join Discord</button>
+</div>
